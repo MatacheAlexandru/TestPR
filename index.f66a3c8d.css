@@ -1,0 +1,2 @@
+body{height:100vh;text-align:center;background-color:#f0f0f0;flex-direction:column;justify-content:center;align-items:center;margin:0;font-family:Arial,sans-serif;display:flex}.weather-card{width:300px;text-align:center;background-color:#fff;background-position:50%;background-size:cover;border:1px solid #ccc;padding:20px;box-shadow:0 4px 8px rgba(0,0,0,.1)}#city-name{margin:0;font-size:24px;font-weight:700}#temperature,#description,#humidity{margin:5px 0;font-size:18px}
+/*# sourceMappingURL=index.f66a3c8d.css.map */
