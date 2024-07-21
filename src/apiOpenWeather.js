@@ -136,6 +136,7 @@ async function getHistoricalWeatherByCityName(city, start, end) {
   return await fetchFromAPI(url);
 }
 
+
 export {
   getWeatherByCityName, // Obține datele meteo actuale pentru un oraș specificat
   getWeatherByCoordinates, // Obține datele meteo actuale pentru coordonate geografice specificate
