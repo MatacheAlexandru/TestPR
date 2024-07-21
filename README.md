@@ -1,3 +1,161 @@
+# Proiect Weather App - Documentație și Ghid de Utilizare
+
+## Descrierea Proiectului
+
+Acest proiect este o aplicație web de tip "Weather App" care afișează date meteo
+pentru un oraș specificat și o imagine relevantă a orașului folosind API-uri
+externe. Structura proiectului este concepută pentru a permite extinderea facilă
+a funcționalității prin adăugarea de noi componente și stiluri.
+
+## Structura Fișierelor
+
+- **index.html**: Fișierul principal HTML care include toate componentele
+  necesare ale aplicației.
+- **index.js**: Fișierul principal JavaScript care inițializează componentele
+  aplicației.
+- **index.css**: Fișierul CSS principal care include stilurile pentru întreaga
+  aplicație.
+
+## Example (cum ar trebui sa arate)
+
+- **partials/**: Conține fișiere HTML și JS pentru componentele aplicației.
+  - **search.html**: Componente pentru bara de căutare.
+  - **weather-card.html**: Componente pentru cardul meteo.
+  - **search.js**: Logica pentru bara de căutare.
+  - **weather-card.js**: Logica pentru afișarea datelor meteo și imaginii
+    orașului.
+- **sass/**: Conține fișiere SCSS pentru stilizarea componentelor.
+  - **search.scss**: Stiluri pentru bara de căutare.
+  - **weather-card.scss**: Stiluri pentru cardul meteo.
+- **api/**: Conține fișierele JS pentru interacțiunea cu API-urile externe.
+  - **apiOpenWeather.js**: Funcții pentru interacțiunea cu OpenWeather API.
+  - **apiPixabay.js**: Funcții pentru interacțiunea cu Pixabay API.
+
+## Funcționarea Codului și Încărcarea Componentelor
+
+### index.html
+
+Fișierul `index.html` include componentele HTML și scripturile necesare pentru
+funcționarea aplicației. Componentele din folderul `partials` sunt incluse în
+`index.html` folosind tag-ul `<include>`.
+
+### index.js
+
+Fișierul `index.js` este responsabil pentru inițializarea componentelor și
+interacțiunea cu API-urile. Importă funcțiile de inițializare din fișierele JS
+ale componentelor și le apelează la încărcarea paginii:
+
+```javascript
+import { initializeSearch } from './partials/search.js';
+import { initializeWeatherCard } from './partials/weather-card.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  initializeSearch(); // Inițializează bara de căutare
+  initializeWeatherCard(); // Inițializează cardul meteo și afișează datele pentru București
+});
+```
+
+### Componentele HTML și JS
+
+#### weather-card.html și weather-card.js
+
+Fișierul `weather-card.html` definește structura HTML pentru cardul meteo, iar
+`weather-card.js` conține logica pentru afișarea datelor meteo și a imaginii
+orașului folosind funcțiile din `apiOpenWeather.js` și `apiPixabay.js`.
+
+### Extinderea Funcționalității
+
+#### Adăugarea unei noi componente HTML și JS
+
+1. Creează un fișier HTML în folderul `partials` (e.g., `new-component.html`).
+2. Creează un fișier JS corespunzător în același folder (e.g.,
+   `new-component.js`).
+
+#### Include componentele în index.html
+
+Adaugă tag-ul `<include src="./partials/new-component.html"></include>` în
+`index.html`.
+
+#### Inițializează componentele în index.js
+
+Importă funcția de inițializare din noul fișier JS și adaugă apelul funcției de
+inițializare în `DOMContentLoaded`.
+
+#### Stilizarea componentei
+
+1. Creează un fișier SCSS în folderul `sass` (e.g., `new-component.scss`).
+2. Include stilurile SCSS în `index.css` folosind un compilator SCSS (de
+   exemplu, Parcel, webpack).
+
+## Utilizarea API-urilor
+
+Pentru a utiliza funcțiile din fișierele API, importă funcțiile necesare în
+fișierul JS al componentei tale și apelează-le după cum este necesar.
+
+## Ghid de Fork și Gestionare
+
+### Realizarea Fork-ului
+
+1. Accesează [pagina proiectului pe GitHub](#).
+2. Apasă butonul "Fork" pentru a crea o copie a proiectului în contul tău.
+
+### Clonarea Proiectului
+
+Clonează proiectul pe mașina ta locală folosind comanda:
+
+```bash
+git clone https://github.com/<username>/WeatherApp.git
+```
+
+### Instalarea Dependențelor
+
+Navighează în directorul proiectului și instalează dependențele folosind npm:
+
+```bash
+cd WeatherApp
+npm install
+```
+
+### Pornirea Proiectului
+
+Pornește proiectul local folosind comanda:
+
+```bash
+npm run start
+```
+
+### Adăugarea Noilor Funcționalități
+
+1. **Adaugă fișierele HTML și JS în `partials`**: Creează componentele necesare
+   și include-le în `index.html`.
+2. **Adaugă fișierele SCSS în `sass`**: Stilizează noile componente și
+   compilează SCSS în CSS.
+3. **Extinde API-urile**: Adaugă noi funcții în fișierele din folderul `api` și
+   importă-le în fișierele necesare.
+
+### Commit și Push
+
+După ce ai făcut modificările, adaugă, commit și push:
+
+```bash
+git add .
+git commit -m "Added new functionality"
+git push origin main
+```
+
+### Crearea unui Pull Request
+
+1. Accesează pagina proiectului tău pe GitHub.
+2. Apasă butonul "New Pull Request".
+3. Descrie modificările tale și trimite Pull Request-ul pentru a fi revizuit și
+   integrat în proiectul principal.
+
+Acest ghid ar trebui să ofere o înțelegere clară a structurii și funcționării
+proiectului, precum și a modului în care se pot adăuga noi funcționalități și
+componente.
+
+---
+
 ### Legenda Documentație API
 
 **Titlu Funcție:**

@@ -1,4 +1,4 @@
-import { fetchAndDisplayWeatherForCity } from './weather-card.js';
+import { fetchAndDisplayWeatherForCity } from './weather-cardExample.js';
 
 export function initializeSearch() {
   document

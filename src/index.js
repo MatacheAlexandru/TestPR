@@ -1,5 +1,5 @@
-import { initializeSearch } from './partials/search.js';
-import { initializeWeatherCard } from './partials/weather-card.js';
+import { initializeSearch } from './partials/searchExemple.js';
+import { initializeWeatherCard } from './partials/weather-cardExample.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   initializeSearch(); // Inițializează bara de căutare
