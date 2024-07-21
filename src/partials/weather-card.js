@@ -1,21 +1,37 @@
-import { getWeatherByCityName } from '../apiServer.js';
+import { getWeatherByCityName } from '../apiOpenWeather.js';
+import { getRandomImageByCity } from '../apiPixabay.js';
 
 export function displayWeatherDataOnCard(data) {
   const cityNameElement = document.getElementById('city-name');
   const temperatureElement = document.getElementById('temperature');
   const descriptionElement = document.getElementById('description');
   const humidityElement = document.getElementById('humidity');
+  const weatherCardElement = document.getElementById('weather-card');
 
   if (
     cityNameElement &&
     temperatureElement &&
     descriptionElement &&
-    humidityElement
+    humidityElement &&
+    weatherCardElement
   ) {
     cityNameElement.textContent = data.name;
     temperatureElement.textContent = `Temperature: ${data.main.temp} °C`;
     descriptionElement.textContent = `Description: ${data.weather[0].description}`;
     humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
+
+    // Obține și afișează imaginea orașului
+    getRandomImageByCity(data.name)
+      .then(imageData => {
+        console.log('Image data:', imageData); // Log pentru verificarea datelor imaginii
+        if (imageData && imageData.hits && imageData.hits.length > 0) {
+          weatherCardElement.style.backgroundImage = `url(${imageData.hits[0].webformatURL})`;
+          weatherCardElement.style.backgroundSize = 'cover';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching image from Pixabay API:', error);
+      });
   } else {
     console.error('One or more elements not found in the DOM');
   }

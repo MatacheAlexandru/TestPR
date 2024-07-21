@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+  text-align: center;
+}
+
+.weather-card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+#city-name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#temperature,
+#description,
+#humidity {
+  margin: 5px 0;
+  font-size: 18px;
+}
