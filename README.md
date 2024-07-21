@@ -1,8 +1,38 @@
---------------------------------------------------------------------
+### Legenda Documentație API
+
+**Titlu Funcție:**
+
+- Reprezintă numele funcției documentate, oferind o descriere sumară a ceea ce
+  face funcția.
+
+**Descriere Funcție:**
+
+- O descriere detaliată a scopului și funcționalității funcției.
+
+**Parametri:**
+
+- O listă detaliată cu fiecare parametru pe care funcția îl acceptă, inclusiv:
+  - **Numele parametrului:** Descrierea sa.
+  - **Tipul de date:** Tipul de date al parametrului (e.g., string, number).
+  - **Descriere:** Ce reprezintă parametrul și cum este utilizat.
+  - **Implicit:** Valoarea implicită a parametrului, dacă există (opțional).
+
+**Returnează:**
+
+- O descriere a ceea ce returnează funcția, de obicei sub forma unui `Promise`,
+  cu detalii despre tipul de date returnat și scopul acestuia.
+
+**Exemplu de utilizare:**
+
+- O secțiune de cod care demonstrează cum poate fi utilizată funcția în
+  practică. Acesta ajută la clarificarea modului în care trebuie să fie apelată
+  funcția și cum să se gestioneze valorile returnate.
+
+---
+
 # apiOpenWeather
---------------------------------------------------------------------
 
-
+---
 
 ````markdown
 ## Documentație pentru Funcțiile din `apiOpenWeather.js.js`
@@ -42,7 +72,6 @@ getWeatherByCityName('București').then(data => {
   console.log(data);
 });
 ```
-
 ````
 
 ---
@@ -572,10 +601,292 @@ getHistoricalWeatherByCityName('București', start, end).then(data => {
 });
 ```
 
+---
 
---------------------------------------------------------------------
 # apiPixabay.js
---------------------------------------------------------------------
 
+---
 
-````
+## Documentație pentru Funcțiile din `apiPixabay.js`
+
+### 1. `fetchFromAPI(url)`
+
+Funcție auxiliară pentru a face cereri HTTP și a obține date de la API.
+
+#### Parametri:
+
+- `url` (string): URL-ul pentru cererea API.
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu datele obținute de la API.
+
+---
+
+### 2. `searchImages(query, page = 1, perPage = 20)`
+
+Obține imagini după un cuvânt cheie.
+
+#### Parametri:
+
+- `query` (string): Termenul de căutare (cuvânt cheie).
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu datele imaginii pentru termenul de căutare
+  specificat.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { searchImages } from './apiPixabay.js';
+
+searchImages('București').then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 3. `searchVideos(query, page = 1, perPage = 20)`
+
+Obține videouri după un cuvânt cheie.
+
+#### Parametri:
+
+- `query` (string): Termenul de căutare (cuvânt cheie).
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu datele videourilor pentru termenul de căutare
+  specificat.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { searchVideos } from './apiPixabay.js';
+
+searchVideos('București').then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 4. `getImageDetails(imageId)`
+
+Obține detalii despre o imagine după ID.
+
+#### Parametri:
+
+- `imageId` (number): ID-ul imaginii.
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu detaliile imaginii specificate.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getImageDetails } from './apiPixabay.js';
+
+getImageDetails(123456).then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 5. `getVideoDetails(videoId)`
+
+Obține detalii despre un video după ID.
+
+#### Parametri:
+
+- `videoId` (number): ID-ul videoului.
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu detaliile videoului specificat.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getVideoDetails } from './apiPixabay.js';
+
+getVideoDetails(123456).then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 6. `getPopularImages(category = '', editorsChoice = false, page = 1, perPage = 20)`
+
+Obține imagini populare.
+
+#### Parametri:
+
+- `category` (string): Categoria imaginilor (implicit gol).
+- `editorsChoice` (boolean): Selectarea editorilor (implicit false).
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu imaginile populare pentru parametrii
+  specificați.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getPopularImages } from './apiPixabay.js';
+
+getPopularImages('nature', true).then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 7. `getPopularVideos(category = '', editorsChoice = false, page = 1, perPage = 20)`
+
+Obține videouri populare.
+
+#### Parametri:
+
+- `category` (string): Categoria videourilor (implicit gol).
+- `editorsChoice` (boolean): Selectarea editorilor (implicit false).
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu videourile populare pentru parametrii
+  specificați.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getPopularVideos } from './apiPixabay.js';
+
+getPopularVideos('nature', true).then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 8. `getRandomImages(query, page = 1, perPage = 3)`
+
+Obține imagini aleatorii pentru un cuvânt cheie (ex. oraș).
+
+#### Parametri:
+
+- `query` (string): Termenul de căutare (cuvânt cheie).
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 3).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu imaginile aleatorii pentru termenul de căutare
+  specificat.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getRandomImages } from './apiPixabay.js';
+
+getRandomImages('București').then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 9. `getRandomVideos(category = '', page = 1, perPage = 20)`
+
+Obține videouri aleatorii.
+
+#### Parametri:
+
+- `category` (string): Categoria videourilor (implicit gol).
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu videourile aleatorii pentru parametrii
+  specificați.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getRandomVideos } from './apiPixabay.js';
+
+getRandomVideos('nature').then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 10. `getImagesByColor(color, page = 1, perPage = 20)`
+
+Obține imagini după culoare.
+
+#### Parametri:
+
+- `color` (string): Culoarea dorită.
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu imaginile filtrate după culoare.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getImagesByColor } from './apiPixabay.js';
+
+getImagesByColor('red').then(data => {
+  console.log(data);
+});
+```
+
+---
+
+### 11. `getVideosByColor(color, page = 1, perPage = 20)`
+
+Obține videouri după culoare (dacă este suportat).
+
+#### Parametri:
+
+- `color` (string): Culoarea dorită.
+- `page` (number): Numărul paginii (implicit 1).
+- `perPage` (number): Numărul de rezultate pe pagină (implicit 20).
+
+#### Returnează:
+
+- Un `Promise` care se rezolvă cu videourile filtrate după culoare.
+
+#### Exemplu de utilizare:
+
+```javascript
+import { getVideosByColor } from './apiPixabay.js';
+
+getVideosByColor('red').then(data => {
+  console.log(data);
+});
+```
+
+---
+
+```
+
+```

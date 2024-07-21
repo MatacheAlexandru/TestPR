@@ -1,5 +1,5 @@
 import { getWeatherByCityName } from '../apiOpenWeather.js';
-import { getRandomImageByCity } from '../apiPixabay.js';
+import { getRandomImages } from '../apiPixabay.js';
 
 export function displayWeatherDataOnCard(data) {
   const cityNameElement = document.getElementById('city-name');
@@ -21,7 +21,7 @@ export function displayWeatherDataOnCard(data) {
     humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
 
     // Obține și afișează imaginea orașului
-    getRandomImageByCity(data.name)
+    getRandomImages(data.name, 1, 3) // Cerem trei imagini pentru a evita erorile de validare
       .then(imageData => {
         console.log('Image data:', imageData); // Log pentru verificarea datelor imaginii
         if (imageData && imageData.hits && imageData.hits.length > 0) {
