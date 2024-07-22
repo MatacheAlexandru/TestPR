@@ -136,6 +136,10 @@ async function getHistoricalWeatherByCityName(city, start, end) {
   return await fetchFromAPI(url);
 }
 
+// Obține URL-ul iconiței meteo
+function getWeatherIconUrl(iconCode) {
+  return `http://openweathermap.org/img/wn/${iconCode}.png`;
+}
 
 export {
   getWeatherByCityName, // Obține datele meteo actuale pentru un oraș specificat
@@ -159,4 +163,5 @@ export {
   getWeatherStations, // Obține date despre stațiile meteo pentru coordonate geografice specificate
   getClimateForecast30Days, // Obține prognoza climatică pe 30 de zile pentru un oraș specificat
   getHistoricalWeatherByCityName, // Obține date meteo istorice pentru un oraș specificat între datele de start și end (în format UNIX timestamp)
+  getWeatherIconUrl, // Obține URL-ul iconiței meteo
 };
